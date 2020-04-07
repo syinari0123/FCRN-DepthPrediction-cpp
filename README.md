@@ -29,7 +29,8 @@ cd freeze_graph/pb_file
 ```
 Build our code (based on [cppflow](https://github.com/serizba/cppflow)) with following commands.
 ```sh
-cd build
+mkdir build && cd build
+cmake ..
 make
 ```
 Specifying the path to the [pb-file](https://github.com/syinari0123/FCRN-DepthPrediction-cpp/tree/master/freeze_graph/pb_file) & target image directory ([samples](https://github.com/syinari0123/FCRN-DepthPrediction-cpp/tree/master/samples) from [NYUDepthv2](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html)), execute as follows.
