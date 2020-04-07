@@ -43,3 +43,4 @@ Specifying the path to the [pb-file](https://github.com/syinari0123/FCRN-DepthPr
 - [FCRN-DepthPrediction](https://github.com/iro-cp/FCRN-DepthPrediction)
 - [cppflow](https://github.com/serizba/cppflow)
 - [monodepth-cpp](https://github.com/yan99033/monodepth-cpp)
+- [NYU Depth Dataset v2](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html)
