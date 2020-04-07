@@ -22,7 +22,7 @@ sudo ldconfig
 ```
 
 ## How to run it
-See [README](https://github.com/syinari0123/FCRN-DepthPrediction-cpp/tree/master/freeze_graph) in freeze_graph page, and prepare pb-file of FCRN-DepthPrediction.
+See [README](https://github.com/syinari0123/FCRN-DepthPrediction-cpp/tree/master/freeze_graph) in freeze_graph, and prepare pb-file of pretrained FCRN-DepthPrediction model.
 ```
 cd freeze_graph/pb_file
 ./download.sh
@@ -30,16 +30,16 @@ cd freeze_graph/pb_file
 Build our code (based on [cppflow](https://github.com/serizba/cppflow)) with following commands.
 ```sh
 cd build
-make -j2
+make
 ```
-Specifying the path to the pb-file & target image, execute as follows.
+Specifying the path to the [pb-file](https://github.com/syinari0123/FCRN-DepthPrediction-cpp/tree/master/freeze_graph/pb_file) & target image directory ([samples](https://github.com/syinari0123/FCRN-DepthPrediction-cpp/tree/master/samples) from [NYUDepthv2](https://cs.nyu.edu/~silberman/datasets/nyu_depth_v2.html)), execute as follows.
 ```sh
 ./inference_fcrn \
     pb_file="../freeze_graph/pb_file/NYU_FCRN.pb" \
-    img_file="../sample.png"
+    img_dir="../samples/home_office_0013"
 ```
 
-## Reference
+## References
 - [FCRN-DepthPrediction](https://github.com/iro-cp/FCRN-DepthPrediction)
 - [cppflow](https://github.com/serizba/cppflow)
 - [monodepth-cpp](https://github.com/yan99033/monodepth-cpp)
