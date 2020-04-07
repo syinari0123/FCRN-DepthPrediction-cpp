@@ -53,7 +53,7 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--input-image', type=str, default="../sample.png")
+    parser.add_argument('--input-image', type=str, default="sample.png")
     parser.add_argument('--pb-file', type=str, default="pb_file/NYU_FCRN.pb")
     parser.add_argument('--in-height', type=int, default=228)
     parser.add_argument('--in-width', type=int, default=304)

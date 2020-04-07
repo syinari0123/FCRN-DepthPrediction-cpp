@@ -21,7 +21,7 @@ You can download converted pb-file from [this link](https://www.dropbox.com/s/au
 By running following code, you can easily check whether your pb-file is correct or not.
 ```sh
 python inference_from_pb.py \
-    --input-image "../sample.png" \
+    --input-image "sample.png" \
     --pb-file "pb_file/NYU_FCRN.pb" \
     --in-height 228 \
     --in-width 304 \

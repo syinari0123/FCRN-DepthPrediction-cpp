@@ -2,7 +2,7 @@
 This is a TensorFlow c++ inference code of [FCRN-DepthPrediction](https://github.com/iro-cp/FCRN-DepthPrediction) for single-view deep depth prediction.
 
 <p align="center">
-    <img src='#' width=90%/></a>
+    <img src='https://github.com/syinari0123/FCRN-DepthPrediction-cpp/blob/master/view/demo.gif' width=90%/></a>
 </p>
 
 We use [cppflow](https://github.com/serizba/cppflow), which doesn't require TensorFlow compile with bazel (this is known as a very difficulat task [[1](https://github.com/yan99033/monodepth-cpp/tree/master/Tensorflow_build_instructions), [2](https://github.com/muskie82/CNN-DSO)]).
@@ -22,7 +22,7 @@ sudo ldconfig
 ```
 
 ## How to run it
-See [README](#) in freeze_graph page, and prepare pb-file of FCRN-DepthPrediction.
+See [README](https://github.com/syinari0123/FCRN-DepthPrediction-cpp/tree/master/freeze_graph) in freeze_graph page, and prepare pb-file of FCRN-DepthPrediction.
 ```
 cd freeze_graph/pb_file
 ./download.sh
