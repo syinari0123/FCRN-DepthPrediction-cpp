@@ -12,9 +12,9 @@ We use [cppflow](https://github.com/serizba/cppflow), which doesn't require Tens
 - CUDA10.0
 - cuDNN7.4
 - Python3.6.9 (for preparing pb-file)
-- [TensorFlow for C 13.1.0](https://www.tensorflow.org/install/lang_c) (this version requires CUDA10.0 & cuDNN7.4)
+- TensorFlow for C 13.1.0 (this version requires CUDA10.0 & cuDNN7.4)
 
-You need to download libtensorflow & install it.
+You need to download libtensorflow & install it referring to [official page](https://www.tensorflow.org/install/lang_c).
 ```sh
 wget https://storage.googleapis.com/tensorflow/libtensorflow/libtensorflow-gpu-linux-x86_64-1.13.1.tar.gz
 sudo tar -C /usr/local -xzf libtensorflow-gpu-linux-x86_64-1.13.1.tar.gz
