@@ -1,5 +1,5 @@
 # TensorFlow C++ inference of FCRN-Depth-Prediction
-This is a TensorFlow c++ inference code of [FCRN-DepthPrediction](https://github.com/iro-cp/FCRN-DepthPrediction) for single-view deep depth prediction.
+This is a TensorFlow c++ inference code of [FCRN-DepthPrediction](https://github.com/iro-cp/FCRN-DepthPrediction) (single-view deep depth prediction) for indoor scenes.
 
 <p align="center">
     <img src='https://github.com/syinari0123/FCRN-DepthPrediction-cpp/blob/master/view/demo.gif' width=60%/></a>
