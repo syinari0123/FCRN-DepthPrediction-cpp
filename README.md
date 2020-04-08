@@ -5,14 +5,14 @@ This is a TensorFlow c++ inference code of [FCRN-DepthPrediction](https://github
     <img src='https://github.com/syinari0123/FCRN-DepthPrediction-cpp/blob/master/view/demo.gif' width=60%/></a>
 </p>
 
-This code use [cppflow](https://github.com/serizba/cppflow), which doesn't require TensorFlow compile with bazel (known as a very difficult task [[1](https://github.com/yan99033/monodepth-cpp/tree/master/Tensorflow_build_instructions), [2](https://github.com/muskie82/CNN-DSO)]).
+This code uses [cppflow](https://github.com/serizba/cppflow), which doesn't require either TensorFlow compile or bazel (this installation is known as a very difficult task [[1](https://github.com/yan99033/monodepth-cpp/tree/master/Tensorflow_build_instructions), [2](https://github.com/muskie82/CNN-DSO)]).
 
 ## Environment
 - Ubuntu18.04
 - CUDA10.0
 - cuDNN7.4
 - Python3.6.9 (for preparing pb-file)
-- TensorFlow for C 13.1.0 (this version requires CUDA10.0 & cuDNN7.4)
+- TensorFlow for C 1.13.1 (this version requires CUDA10.0 & cuDNN7.4)
 
 You need to download libtensorflow & install it referring to [official page](https://www.tensorflow.org/install/lang_c).
 ```sh
