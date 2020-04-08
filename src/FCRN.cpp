@@ -3,11 +3,11 @@
 FCRN::FCRN(const std::string pb_path)
 {
     // Restore model
-    model_ = std::shared_ptr<Model>(new Model(pb_path));
+    model_ = new Model(pb_path);
 
     // Prepare placeholder for model
-    input_ = std::shared_ptr<Tensor>(new Tensor(*model_, "input_image"));
-    output_ = std::shared_ptr<Tensor>(new Tensor(*model_, "ConvPred/ConvPred"));
+    input_ = new Tensor(*model_, "input_image");
+    output_ = new Tensor(*model_, "ConvPred/ConvPred");
 }
 
 void FCRN::inference(std::vector<cv::Mat> &input_batch,
@@ -18,30 +18,30 @@ void FCRN::inference(std::vector<cv::Mat> &input_batch,
     orig_size_ = input_batch[0].size();
 
     // Preprocess
-    this->preprocess(input_batch);
+    this->pre_process(input_batch);
 
     // Convert cv::Mat to tensor
-    this->setInputTensor(input_batch);
+    this->set_input_tensor(input_batch);
 
     // Run model
     model_->run(*input_, *output_);
 
     // Convert tensor to cv::Mat
-    output_batch = this->getOutputTensor();
+    output_batch = this->get_output_tensor();
 
     // Postprocess
-    this->postprocess(output_batch);
+    this->post_process(output_batch);
 }
 
-void FCRN::preprocess(std::vector<cv::Mat> &img_batch)
+void FCRN::pre_process(std::vector<cv::Mat> &img_batch)
 {
     for (int i = 0; i < batch_size_; i++)
     {
-        cv::resize(img_batch[i], img_batch[i], in_size_);
+        cv::resize(img_batch[i], img_batch[i], in_size_); // CV_8UC1 (is it OK...?)
     };
 }
 
-void FCRN::postprocess(std::vector<cv::Mat> &out_batch)
+void FCRN::post_process(std::vector<cv::Mat> &out_batch)
 {
     for (int i = 0; i < out_batch.size(); i++)
     {
@@ -49,22 +49,22 @@ void FCRN::postprocess(std::vector<cv::Mat> &out_batch)
     };
 }
 
-void FCRN::setInputTensor(std::vector<cv::Mat> img_batch)
+void FCRN::set_input_tensor(std::vector<cv::Mat> img_batch)
 {
     std::vector<float> batch_data;
     for (int i = 0; i < batch_size_; i++)
     {
-        // convert to vector format
+        // Convert to vector format
         std::vector<float> img_data;
         img_data.assign(img_batch[i].data, img_batch[i].data + img_batch[i].total() * img_batch[i].channels());
-        // concat
+        // Concat
         batch_data.insert(batch_data.end(), img_data.begin(), img_data.end());
     }
     // Convert to tensor
     input_->set_data<float>(batch_data, {batch_size_, in_size_.height, in_size_.width, 3});
 }
 
-std::vector<cv::Mat> FCRN::getOutputTensor()
+std::vector<cv::Mat> FCRN::get_output_tensor()
 {
     // Extract prediction result as vector format
     std::vector<float> tensor_vec = output_->get_data<float>();

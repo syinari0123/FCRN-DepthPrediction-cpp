@@ -6,7 +6,7 @@
 std::string pb_file = "../freeze_graph/pb_file/NYU_FCRN.pb";
 std::string img_dir = "../samples/home_office_0013";
 
-void parseArguments(char *arg)
+void pars_args(char *arg)
 {
     char buf[1000];
     if (1 == sscanf(arg, "pb_file=%s", buf))
@@ -21,7 +21,7 @@ void parseArguments(char *arg)
     }
 }
 
-int getImgsFromDir(std::string dir, std::vector<std::string> &files)
+int get_imgs_from_dir(std::string dir, std::vector<std::string> &files)
 {
     // Get image files (png format) in specified directory
     DIR *dp;
@@ -56,14 +56,14 @@ int main(int argc, char **argv)
 {
     // Arguments
     for (int i = 1; i < argc; i++)
-        parseArguments(argv[i]);
+        pars_args(argv[i]);
 
-    // Construct model by specified pb-file
+    // Construct model by specified pb-file (converted from ckpt-file)
     FCRN model(pb_file);
 
     // Prepare imgs from specified directory
     std::vector<std::string> img_files;
-    int num_imgs = getImgsFromDir(img_dir, img_files);
+    int num_imgs = get_imgs_from_dir(img_dir, img_files);
     for (int i = 0; i < num_imgs; i++)
     {
         // Read image
@@ -92,8 +92,8 @@ int main(int argc, char **argv)
         depth_viz.copyTo(mat_roi); // copy to right side of cat_result
 
         // Visualize
-        cv::namedWindow("FULL", cv::WINDOW_AUTOSIZE);
-        cv::imshow("FULL", cat_result);
+        cv::namedWindow("Result", cv::WINDOW_AUTOSIZE);
+        cv::imshow("Result", cat_result);
         cv::waitKey(1);
     }
 }

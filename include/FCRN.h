@@ -13,13 +13,13 @@ public:
     void inference(std::vector<cv::Mat> &input_batch, std::vector<cv::Mat> &output_batch);
 
     // Preprocess & Postprocess for image
-    void preprocess(std::vector<cv::Mat> &img_batch);
-    void postprocess(std::vector<cv::Mat> &img_batch);
+    void pre_process(std::vector<cv::Mat> &img_batch);
+    void post_process(std::vector<cv::Mat> &img_batch);
 
 private:
     // Convert between vector<Mat> <-> Tensor
-    void setInputTensor(std::vector<cv::Mat> img_batch);
-    std::vector<cv::Mat> getOutputTensor();
+    void set_input_tensor(std::vector<cv::Mat> img_batch);
+    std::vector<cv::Mat> get_output_tensor();
 
     // Original image information
     int batch_size_;
@@ -30,9 +30,8 @@ private:
     const cv::Size out_size_ = cv::Size(160, 128);
 
     // Model & Placeholders
-    std::shared_ptr<Model> model_ = nullptr;
-    std::shared_ptr<Tensor> input_ = nullptr;
-    std::shared_ptr<Tensor> output_ = nullptr;
+    Model *model_;
+    Tensor *input_, *output_;
 };
 
 #endif
