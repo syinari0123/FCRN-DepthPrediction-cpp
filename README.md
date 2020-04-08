@@ -22,7 +22,7 @@ sudo ldconfig
 ```
 
 ## How to run it
-See [README](https://github.com/syinari0123/FCRN-DepthPrediction-cpp/tree/master/freeze_graph) in freeze_graph, and prepare pb-file of pretrained FCRN-DepthPrediction model.
+See [README](https://github.com/syinari0123/FCRN-DepthPrediction-cpp/blob/master/freeze_graph/README.md) in freeze_graph, and prepare pb-file of pretrained FCRN-DepthPrediction model.
 ```
 cd freeze_graph/pb_file
 ./download.sh
